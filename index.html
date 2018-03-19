@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <title>Sample FirebaseUI App</title>
 
+
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script>
         // Initialize Firebase
         var config = {
-            apiKey: "AIzaSyCjtkoViUWyLVJYP_NfVaqO8tJoKbvIRj8",
-            authDomain: "blankcanvas-43876.firebaseapp.com",
-            databaseURL: "https://blankcanvas-43876.firebaseio.com",
-            projectId: "blankcanvas-43876",
-            storageBucket: "blankcanvas-43876.appspot.com",
-            messagingSenderId: "784751662446"
+            apiKey: "AIzaSyCftzAFF4oaasQ2kXaY9mN6dKijgIyWu8U",
+            authDomain: "my-awesome-project-cdb86.firebaseapp.com",
+            databaseURL: "https://my-awesome-project-cdb86.firebaseio.com",
+            projectId: "my-awesome-project-cdb86",
+            storageBucket: "",
+            messagingSenderId: "1072657045196"
         };
         firebase.initializeApp(config);
     </script>
@@ -51,29 +52,19 @@
             queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
             // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
             signInFlow: 'popup',
-            signInSuccessUrl: '<url-to-redirect-to-on-success>',
+            signInSuccessUrl: 'success.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID,
                 firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                firebase.auth.TwitterAuthProvider.PROVIDER_ID,
                 {
                     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
                     // Whether the display name should be displayed in the Sign Up page.
                     requireDisplayName: true
-                },
-                {
-                    provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                    // Invisible reCAPTCHA with image challenge and bottom left badge.
-                    recaptchaParameters: {
-                        type: 'image',
-                        size: 'invisible',
-                        badge: 'bottomleft'
-                    }
                 }
-            ],
-            // Terms of service url.
-            tosUrl: '<your-tos-url>'
+              
+            ]
+
         };
 
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
